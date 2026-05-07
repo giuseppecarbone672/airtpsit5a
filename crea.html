@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggiungi Volo - FlyHigh</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:Arial, Helvetica, sans-serif; }
+        body { background:#0f172a; color:white; }
+        header { position:absolute; top:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:25px 60px; z-index:10; }
+        
+        /* Stile Logo Link */
+        .logo { font-size:28px; font-weight:bold; text-decoration: none; color: white; transition: 0.3s; }
+        .logo:hover { color: #38bdf8; }
+
+        nav { display:flex; gap:25px; }
+        nav a { text-decoration:none; color:white; font-weight:500; transition:0.3s; }
+        nav a:hover { color:#38bdf8; }
+        .hero { min-height:100vh; background:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074') center/cover; display:flex; justify-content:center; align-items:center; position:relative; padding:30px; }
+        .overlay { position:absolute; inset:0; background:rgba(0,0,0,0.55); }
+        .hero-content { position:relative; z-index:2; width:100%; max-width:1000px; text-align:center; }
+        .hero h1 { font-size:55px; margin-bottom:15px; }
+        .hero p { font-size:18px; opacity:0.9; margin-bottom:40px; }
+        .search-box { background:rgba(255,255,255,0.1); backdrop-filter:blur(15px); padding:35px; border-radius:25px; box-shadow:0 10px 40px rgba(0,0,0,0.3); }
+        .form-row { display:flex; gap:20px; margin-bottom:20px; flex-wrap:wrap; }
+        .input-group { flex:1; display:flex; flex-direction:column; text-align:left; }
+        .input-group label { margin-bottom:8px; font-weight:600; }
+        .input-group input { padding:14px; border:none; border-radius:12px; background:white; font-size:15px; outline:none; color: #333; }
+        .admin-buttons { margin-top:35px; display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
+        .btn { text-decoration:none; color:white; padding:14px 22px; border-radius:12px; font-weight:bold; transition:0.3s; border:none; cursor:pointer; font-size:16px; }
+        .green { background:#16a34a; }
+        .gray { background: rgba(255,255,255,0.2); }
+        .btn:hover { transform:translateY(-3px); opacity:0.9; }
+        @media(max-width:768px){ .hero h1{ font-size:38px; } .form-row{ flex-direction:column; } header{ padding:20px; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="homepage.html" class="logo">FlyHigh</a>
+        <nav>
+            <a href="homepage.html">Home</a>
+            <a href="crea.html">Aggiungi</a>
+            <a href="cancella.html">Elimina</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Nuova Rotta</h1>
+            <p>Inserisci i dettagli per aggiungere un nuovo volo al database.</p>
+
+            <div class="search-box">
+                <form action="inserisci.php" method="POST">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Codice Volo</label>
+                            <input type="text" name="codice" placeholder="es. AZ123" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Data e Ora Partenza</label>
+                            <input type="datetime-local" name="data_ora" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Città di Partenza</label>
+                            <input type="text" name="origine" placeholder="Da dove si parte?" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Città di Destinazione</label>
+                            <input type="text" name="destinazione" placeholder="Dove si va?" required>
+                        </div>
+                    </div>
+
+                    <div class="admin-buttons">
+                        <button type="submit" class="btn green">Salva Volo</button>
+                        <a href="homepage.html" class="btn gray">Torna alla Home</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
