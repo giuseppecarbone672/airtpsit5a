@@ -1,0 +1,117 @@
+:root {
+    --primary-blue: #003580;
+    --accent-gold: #ffcc00;
+    --light-gray: #f4f7f6;
+    --dark-text: #333;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-gray);
+    color: var(--dark-text);
+    margin: 0;
+    padding: 20px;
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+h1 {
+    color: var(--primary-blue);
+    text-align: center;
+    border-bottom: 3px solid var(--accent-gold);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.compagnia-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.compagnia-table th {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.compagnia-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.compagnia-table tr:hover {
+    background-color: #f1f1f1;
+    transition: 0.3s;
+}
+
+
+.logo-compagnia {
+    width: 80px;
+    height: auto;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+
+.capitale {
+    font-weight: bold;
+    color: #2c7a7b; 
+}
+
+.capitale::before {
+    content: "€ ";
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.btn-edit {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.btn-delete {
+    background-color: #e53e3e;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+    .compagnia-table thead {
+        display: none;
+    }
+    .compagnia-table td {
+        display: block;
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+    .compagnia-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
